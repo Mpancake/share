@@ -1,0 +1,4 @@
+junos-eznc>=2.6.3
+netmiko>=4.1.2
+questionary>=1.10.0
+tqdm>=4.62.0
