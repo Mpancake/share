@@ -1,0 +1,81 @@
+set system syslog file LOG-INTERACTIVE-COMMANDS interactive-commands any
+set system syslog file LOG_INTERFACE_STATUS daemon info
+set system syslog file LOG_INTERFACE_STATUS match "(SNMP_TRAP_LINK_UP|SNMP_TRAP_LINK_DOWN)"
+set system syslog file LOG_INTERFACE_STATUS explicit-priority
+set system syslog file LOG-POLICY-DENIED-TRAFFIC any any
+set system syslog file LOG-POLICY-DENIED-TRAFFIC match RT_FLOW_SESSION_DENY
+set system syslog file LOG-POLICY-DENIED-TRAFFIC archive size 2m
+set system syslog file LOG-SNMP-CRITICAL daemon critical
+set system syslog file LOG-SECURITY authorization info
+set system syslog file LOG-FIREWALL firewall any
+set system syslog file LOG-IDP any any
+set system syslog file LOG-IDP match RT_IDP
+set system syslog file LOG-UTM any any
+set system syslog file LOG-UTM match RT_UTM
+set system syslog time-format year
+set system syslog host log-lax-gcs01.net any info
+set system syslog host log-lax-gcs01.net port 4205
+set system syslog host log-lax-gcs01.net log-prefix JuniperJUNOS
+set system syslog host log-lax-gcs01.net explicit-priority
+set system syslog host log-nycdc-vlan2-vip.net any info
+set system syslog host log-nycdc-vlan2-vip.net port 4205
+set system syslog host log-nycdc-vlan2-vip.net log-prefix JuniperJUNOS
+set system syslog host log-nycdc-vlan2-vip.net explicit-priority
+set system root-authentication encrypted-password "$6$======"
+set system login class ntw-ro idle-timeout 60
+set system login class ntw-ro permissions view
+set system login class ntw-ro permissions view-configuration
+set system login class ntw-su idle-timeout 60
+set system login class ntw-su permissions all
+set system login class tier1 idle-timeout 15
+set system login class tier1 permissions configure
+set system login class tier1 permissions firewall
+set system login class tier1 permissions interface
+set system login class tier1 permissions network
+set system login class tier1 permissions routing
+set system login class tier1 permissions snmp
+set system login class tier1 permissions system
+set system login class tier1 permissions trace
+set system login class tier1 permissions view
+set system login class tier2 idle-timeout 20
+set system login class tier2 permissions admin
+set system login class tier2 permissions clear
+set system login class tier2 permissions configure
+set system login class tier2 permissions firewall
+set system login class tier2 permissions firewall-control
+set system login class tier2 permissions interface
+set system login class tier2 permissions interface-control
+set system login class tier2 permissions maintenance
+set system login class tier2 permissions network
+set system login class tier2 permissions reset
+set system login class tier2 permissions rollback
+set system login class tier2 permissions routing
+set system login class tier2 permissions routing-control
+set system login class tier2 permissions secret
+set system login class tier2 permissions snmp
+set system login class tier2 permissions snmp-control
+set system login class tier2 permissions system
+set system login class tier2 permissions system-control
+set system login class tier2 permissions trace
+set system login class tier2 permissions trace-control
+set system login class tier2 permissions view
+set system login class tier3 idle-timeout 45
+set system login class tier3 permissions all
+set system login user remote uid 666
+set system login user remote class super-user
+set system login user remote-ro full-name "Map to TACACS+ remote read only user"
+set system login user remote-ro uid 2001
+set system login user remote-ro class ntw-ro
+set system login user remote-su full-name "Map to TACACS+ remote super user"
+set system login user remote-su uid 2003
+set system login user remote-su class ntw-su
+set system login user tier1 uid 3001
+set system login user tier1 class tier1
+set system login user tier2 uid 3002
+set system login user tier2 class tier2
+set system login user tier3 uid 3003
+set system login user tier3 class tier3
+set system login password minimum-length 6
+set system login password maximum-length 20
+set system login password minimum-changes 2
+set system login message "+-------------------------------------------------------------------------------+\n|This system contains confidential and copyrighted information and is for the   |\n|use of authorized users only.                                                  |\n|                                                                               |\n|Users are subject to all applicable laws, regulations, and policies, including |\n|intellectual property laws and affiliate compliance rules.                     |\n|                                                                               |\n|Any person using this system acknowledges that all information on the system,  |\n|including e-mail,instant messages, and personal files, constitute property     |\n|belonging to the company.  Users are subject to having any of their activities |\n|on this system monitored and recorded.  Anyone using this system expressly     |\n|consents to such monitoring and recording.                                     |\n|                                                                               |\n|Users are advised that any activity, improper or not, may be investigated, and |\n|acted upon by the company. This may RESULT IN DISCIPLINE INCLUDING TERMINATION |\n|OF EMPLOYMENT; and may be provided to the appropriate outside authorities for  |\n|prosecution or other action.  \n+-------------------------------------------------------------------------------+\n;;"
