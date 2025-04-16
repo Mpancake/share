@@ -1,0 +1,119 @@
+config user radius
+    edit "Provider_name RAD Servers"
+        set server "radius-a.provider_name.com"
+        set secret cR37B2CoasGXra2N
+        set acct-interim-interval 600
+        set radius-port 5588
+        set acct-all-servers enable
+        set secondary-server "radius-b.provider_name.com"
+        set secondary-secret cR37B2CoasGXra2N
+        config accounting-server
+            edit 1
+                set status enable
+                set server "radius-a.provider_name.com"
+                set secret cR37B2CoasGXra2N
+                set port 5589
+            next
+            edit 2
+                set status enable
+                set server "radius-b.provider_name.com"
+                set secret cR37B2CoasGXra2N
+                set port 5589
+            next
+        end
+    next
+end
+ 
+ 
+ 
+ 
+config wireless-controller hotspot20 anqp-3gpp-cellular
+    edit "3gppcell"
+        config mcc-mnc-list
+            edit 1
+                set mcc "310"
+                set mnc "410"
+            next
+            edit 2
+                set mcc "310"
+                set mnc "280"
+            next
+            edit 3
+                set mcc "313"
+                set mnc "100"
+            next
+            edit 4
+                set mcc "310"
+                set mnc "150"
+            next
+            edit 5
+                set mcc "310"
+                set mnc "260"
+            next
+            edit 6
+                set mcc "310"
+                set mnc "120"
+            next
+        end
+    next
+end
+ 
+ 
+------------------------------------------------------------
+config wireless-controller hotspot20 anqp-ip-address-type
+    edit "ipv4"
+        set ipv4-address-type single-NATed-private
+    next
+end
+ 
+config wireless-controller hotspot20 anqp-venue-name
+    edit "your_venue_name_here"
+        config value-list
+            edit 1
+                set value "your_venue_name_here"
+            next
+        end
+    next
+end
+-------------------------------------------------------------
+ 
+ 
+config wireless-controller hotspot20 h2qp-operator-name
+    edit "AB"
+        config value-list
+            edit 1
+                set value "provider_name"
+            next
+        end
+    next
+end
+ 
+---------------------------------------------------------------
+ 
+config wireless-controller hotspot20 hs-profile
+    edit "AB"
+        set access-network-type chargeable-public-network
+        set access-network-internet enable
+        set venue-group business
+        set domain-name "provider_name.com"
+        set venue-name "your_venue_name_here"
+        set oper-friendly-name "AB"
+        set 3gpp-plmn "3gppcell"
+        set ip-addr-type "ipv4"
+    next
+end
+ 
+----------------------------------------------------------------
+ 
+config wireless-controller vap
+    edit "Passpoint"
+        set ssid "wifi-passpoint"
+        set security wpa2-only-enterprise
+        set auth radius
+        set radius-server "provider_name RAD Servers"
+        set intra-vap-privacy enable
+        set schedule "always"
+        set hotspot20-profile "AB"
+
+
+ 
