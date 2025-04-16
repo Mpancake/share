@@ -13,23 +13,20 @@ set system syslog file LOG-IDP match RT_IDP
 set system syslog file LOG-UTM any any
 set system syslog file LOG-UTM match RT_UTM
 set system syslog time-format year
-set system syslog host log-lax-gcs01.air2gnd.net any info
-set system syslog host log-lax-gcs01.air2gnd.net port 4205
-set system syslog host log-lax-gcs01.air2gnd.net log-prefix JuniperJUNOS
-set system syslog host log-lax-gcs01.air2gnd.net explicit-priority
-set system syslog host log-nycdc-vlan2-vip.air2gnd.net any info
-set system syslog host log-nycdc-vlan2-vip.air2gnd.net port 4205
-set system syslog host log-nycdc-vlan2-vip.air2gnd.net log-prefix JuniperJUNOS
-set system syslog host log-nycdc-vlan2-vip.air2gnd.net explicit-priority
-set system root-authentication encrypted-password "$6$bu5L/ZAB$oPFOLDxjLyqEfyw3iXDqDEgBSJIA9qMaw7kjve1rcqAL1iTxl3dkH0WCt3E86zY2K14ptr3V1Y9SYmXcNDF4O1"
+set system syslog host log-lax-gcs01.net any info
+set system syslog host log-lax-gcs01.net port 4205
+set system syslog host log-lax-gcs01.net log-prefix JuniperJUNOS
+set system syslog host log-lax-gcs01.net explicit-priority
+set system syslog host log-nycdc-vlan2-vip.net any info
+set system syslog host log-nycdc-vlan2-vip.net port 4205
+set system syslog host log-nycdc-vlan2-vip.net log-prefix JuniperJUNOS
+set system syslog host log-nycdc-vlan2-vip.net explicit-priority
+set system root-authentication encrypted-password "$6$======"
 set system login class ntw-ro idle-timeout 60
 set system login class ntw-ro permissions view
 set system login class ntw-ro permissions view-configuration
 set system login class ntw-su idle-timeout 60
 set system login class ntw-su permissions all
-set system login user nocadmin uid 2000
-set system login user nocadmin class super-user
-set system login user nocadmin authentication encrypted-password "$6$O7Ho2483$Fw6qdZL87nUsE2NCo6mQtP91TEU.it/PcUbNlj9VdQGPuXectJno.IlnTxmfpP5ypL.oX5YeRsY82E.bx6zXK."
 set system login class tier1 idle-timeout 15
 set system login class tier1 permissions configure
 set system login class tier1 permissions firewall
@@ -64,9 +61,6 @@ set system login class tier2 permissions trace-control
 set system login class tier2 permissions view
 set system login class tier3 idle-timeout 45
 set system login class tier3 permissions all
-set system login user nocadmin uid 2000
-set system login user nocadmin class super-user
-set system login user nocadmin authentication encrypted-password "$6$O7Ho2483$Fw6qdZL87nUsE2NCo6mQtP91TEU.it/PcUbNlj9VdQGPuXectJno.IlnTxmfpP5ypL.oX5YeRsY82E.bx6zXK."
 set system login user remote uid 666
 set system login user remote class super-user
 set system login user remote-ro full-name "Map to TACACS+ remote read only user"
